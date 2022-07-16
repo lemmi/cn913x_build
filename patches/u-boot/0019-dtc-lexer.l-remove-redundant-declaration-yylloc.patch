@@ -1,0 +1,25 @@
+From e0daa445b96b9dc06669e07c520256df9a3995f1 Mon Sep 17 00:00:00 2001
+From: lemmi <lemmi@nerd2nerd.org>
+Date: Sat, 16 Jul 2022 07:06:25 +0200
+Subject: [PATCH 19/19] dtc-lexer.l: remove redundant declaration yylloc
+
+Fixes compilations on newer compilers.
+---
+ scripts/dtc/dtc-lexer.l | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/scripts/dtc/dtc-lexer.l b/scripts/dtc/dtc-lexer.l
+index fd825ebb..24af5499 100644
+--- a/scripts/dtc/dtc-lexer.l
++++ b/scripts/dtc/dtc-lexer.l
+@@ -38,7 +38,6 @@ LINECOMMENT	"//".*\n
+ #include "srcpos.h"
+ #include "dtc-parser.tab.h"
+ 
+-YYLTYPE yylloc;
+ extern bool treesource_error;
+ 
+ /* CAUTION: this will stop working if we ever use yyless() or yyunput() */
+-- 
+2.37.1
+
