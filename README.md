@@ -18,6 +18,23 @@ The build script builds the u-boot, atf and linux components, integrate it with 
 ## Build with host tools
 Simply running ./runme.sh will check for required tools, clone and build images and place results in images/ directory.
 
+## Build with rootless podman
+### Build the container image
+```bash
+podman build -t cn913x_build .
+```
+
+### Run the build in the current directory using the container image
+```bash
+podman run --rm -it -v .:/work:Z cn913x_build
+```
+
+Environment Variables can be passedn in with `-e`:
+```bash
+podman run --rm -it -v .:/work:Z -e BOARD_CONFIG=2 cn913x_build
+```
+This will build for `CN9130 SOM based on Clearfog Pro`.
+
 #Auto detection of boot device such as SD card, eMMC and SPI
 Currently there no support of distro for auto detection of boot device, however it is under development.
 
