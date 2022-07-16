@@ -37,7 +37,7 @@ BUILDROOT_VERSION=2020.02.1
 ###############################################################################
 
 RELEASE=${RELEASE:-v5.15}
-SHALLOW=${SHALLOW:true}
+SHALLOW=${SHALLOW:-true}
 	if [ "x$SHALLOW" == "xtrue" ]; then
 		SHALLOW_FLAG="--depth 1"
 	fi
