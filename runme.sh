@@ -166,7 +166,7 @@ for i in $SDK_COMPONENTS; do
 		elif [ "x$i" == "xu-boot" ]; then
 			echo "Cloning u-boot from git://git.denx.de/u-boot.git"
 			cd $ROOTDIR/build
-			git clone git://git.denx.de/u-boot.git u-boot
+			git clone $SHALLOW_FLAG git://git.denx.de/u-boot.git u-boot -b v2019.10
 			cd u-boot
 			git checkout v2019.10 -b marvell
 		elif [ "x$i" == "xdpdk" ]; then
